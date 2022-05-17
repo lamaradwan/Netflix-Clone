@@ -12,10 +12,11 @@ export default function Movie(props){
         setShow(true);
         setChoosenCard(movieNamed);
     }
+    let imageURL = 'https://image.tmdb.org/t/p/original';
     return(
         <>
         <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={props.movies.poster_path} />
+        <Card.Img variant="top" src={`${imageURL}${props.movies.poster_path}`} />
         <Card.Body>
         <Card.Title>{props.movies.title}</Card.Title>
         <Card.Text>

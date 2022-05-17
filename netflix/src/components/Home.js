@@ -11,7 +11,6 @@ export default function Home(){
     let moviesData = await response.json();
     setMovies(moviesData);
     console.log('moviesData',moviesData)
-    
     }
 
     useEffect(() => {
@@ -22,7 +21,7 @@ export default function Home(){
         <>
         <h1>Home Page</h1>
         {
-            <MovieList movies ={movies}/>
+            movies?<MovieList movies ={movies}/>:"No Movies yet in the list, please wait .."
         }
         </>
     )
