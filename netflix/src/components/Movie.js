@@ -8,14 +8,14 @@ export default function Movie(props){
 
     const handleClose = ()=> setShow(false);
     
-    const handleShow = (movieNamed)=> {
+    const handleShow = (receivedMovieFromOnClick)=> {
         setShow(true);
-        setChoosenCard(movieNamed);
+        setChoosenCard(receivedMovieFromOnClick);
     }
     let imageURL = 'https://image.tmdb.org/t/p/original';
     return(
         <>
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '25rem', margin:'20px', boxShadow:'1px 1px 10px gray'}} key={props.movies.id}>
         <Card.Img variant="top" src={`${imageURL}${props.movies.poster_path}`} />
         <Card.Body>
         <Card.Title>{props.movies.title}</Card.Title>
@@ -28,7 +28,7 @@ export default function Movie(props){
         </Card.Body>
         </Card>
         {choosenCard &&
-        <ModalMovie show = {show} handleClose={handleClose} choosenCard={choosenCard}/>
+        <ModalMovie show = {show} handleClose={handleClose} choosenCard={choosenCard} updateMovie={props.updateMovie}/>
         }
         </>
     )
